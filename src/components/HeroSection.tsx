@@ -59,10 +59,15 @@ const HeroSection = () => {
             </p>
 
             <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
-              <Button size="lg" className="bg-gradient-cyber hover:shadow-glow-blue text-background font-semibold">
+              <Button size="lg" className="bg-gradient-cyber hover:shadow-glow-blue text-background font-semibold"
+              onClick={() => {
+                const el = document.getElementById("projects");
+                el?.scrollIntoView({ behavior: "smooth" });
+              }}>
                 View Projects
               </Button>
-              <Button variant="outline" size="lg" className="border-cyber-purple text-cyber-purple hover:bg-cyber-purple hover:text-background glow-purple">
+              <Button variant="outline" size="lg" className="border-cyber-purple text-cyber-purple hover:bg-cyber-purple hover:text-background glow-purple"
+              onClick={() => window.location.href = "mailto:veenz.2001@gmail.com"}>
                 Contact Me
               </Button>
             </div>
