@@ -1,0 +1,176 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Cyberpunk Portfolio Design System - All colors, gradients, fonts, animations */
+
+@layer base {
+  :root {
+    /* Dark cyberpunk base colors */
+    --background: 220 13% 8%;
+    --foreground: 0 0% 98%;
+
+    --card: 220 13% 10%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 220 13% 10%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Cyberpunk neon primary - Electric Blue */
+    --primary: 193 100% 50%;
+    --primary-foreground: 220 13% 8%;
+
+    /* Neon Purple secondary */
+    --secondary: 280 100% 70%;
+    --secondary-foreground: 220 13% 8%;
+
+    /* Dark muted tones */
+    --muted: 220 13% 15%;
+    --muted-foreground: 220 9% 65%;
+
+    /* Neon Green accent */
+    --accent: 120 100% 50%;
+    --accent-foreground: 220 13% 8%;
+
+    /* Neon Magenta for destructive/warning */
+    --destructive: 330 100% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 220 13% 20%;
+    --input: 220 13% 15%;
+    --ring: 193 100% 50%;
+
+    --radius: 0.75rem;
+
+    /* Cyberpunk-specific colors */
+    --cyber-blue: 193 100% 50%;
+    --cyber-purple: 280 100% 70%;
+    --cyber-green: 120 100% 50%;
+    --cyber-magenta: 330 100% 60%;
+    --cyber-orange: 25 100% 60%;
+    
+    /* Gradients */
+    --gradient-cyber: linear-gradient(135deg, hsl(var(--cyber-blue)), hsl(var(--cyber-purple)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--background)), hsl(220 13% 12%));
+    --gradient-neon: linear-gradient(90deg, hsl(var(--cyber-blue)), hsl(var(--cyber-green)), hsl(var(--cyber-magenta)));
+    
+    /* Shadows and glows */
+    --glow-blue: 0 0 20px hsl(var(--cyber-blue) / 0.5);
+    --glow-purple: 0 0 20px hsl(var(--cyber-purple) / 0.5);
+    --glow-green: 0 0 20px hsl(var(--cyber-green) / 0.5);
+    --shadow-cyber: 0 8px 32px hsl(var(--cyber-blue) / 0.2);
+    
+    /* Animations */
+    --transition-cyber: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 220 13% 10%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 193 100% 50%;
+    --sidebar-primary-foreground: 220 13% 8%;
+    --sidebar-accent: 220 13% 15%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 220 13% 20%;
+    --sidebar-ring: 193 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter;
+  }
+
+  .font-orbitron {
+    font-family: 'Orbitron', monospace;
+  }
+
+  .font-inter {
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  /* Cyberpunk glow effects */
+  .glow-blue {
+    box-shadow: var(--glow-blue);
+  }
+
+  .glow-purple {
+    box-shadow: var(--glow-purple);
+  }
+
+  .glow-green {
+    box-shadow: var(--glow-green);
+  }
+
+  /* Neon text effects */
+  .text-neon-blue {
+    color: hsl(var(--cyber-blue));
+    text-shadow: 0 0 10px hsl(var(--cyber-blue) / 0.8);
+  }
+
+  .text-neon-purple {
+    color: hsl(var(--cyber-purple));
+    text-shadow: 0 0 10px hsl(var(--cyber-purple) / 0.8);
+  }
+
+  .text-neon-green {
+    color: hsl(var(--cyber-green));
+    text-shadow: 0 0 10px hsl(var(--cyber-green) / 0.8);
+  }
+
+  /* Cyber borders */
+  .border-neon {
+    border: 1px solid hsl(var(--cyber-blue));
+    box-shadow: 0 0 10px hsl(var(--cyber-blue) / 0.3);
+  }
+
+  /* Animated background patterns */
+  .cyber-grid {
+    background-image: 
+      linear-gradient(hsl(var(--cyber-blue) / 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--cyber-blue) / 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  /* Glitch text animation */
+  @keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+  }
+
+  .glitch:hover {
+    animation: glitch 0.5s ease-in-out infinite;
+  }
+
+  /* Pulse glow animation */
+  @keyframes pulse-glow {
+    0%, 100% { 
+      box-shadow: 0 0 10px hsl(var(--cyber-blue) / 0.5);
+    }
+    50% { 
+      box-shadow: 0 0 30px hsl(var(--cyber-blue) / 0.8);
+    }
+  }
+
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: var(--gradient-neon);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
